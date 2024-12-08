@@ -110,7 +110,7 @@
     max-height: 150px;
     overflow-y: auto;
     position: absolute;
-    width: 250px; /* Ширина інпуту */
+    width: 250px;
     z-index: 10;
   }
 

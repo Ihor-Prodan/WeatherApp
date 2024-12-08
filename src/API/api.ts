@@ -3,7 +3,7 @@ import type { WeatherData } from '@/types/WeatherData';
 import type { ForecastItem } from '@/types/forecastItem';
 import { addDays, format, isSameDay } from 'date-fns';
 
-export const API_KEY = 'your_api_key';
+export const API_KEY = 'your-api-key';
 
 export const fetchWeatherByCoords = async (
   lat: number,
@@ -91,15 +91,12 @@ export const fetchForecast = async (
       });
     });
 
-    // Отримання наступного дня
     const tomorrow = format(addDays(new Date(), 1), 'yyyy-MM-dd');
 
-    // Сортування дат у хронологічному порядку
     const sortedDates = Object.keys(groupedForecasts).sort(
       (a, b) => new Date(a).getTime() - new Date(b).getTime()
     );
 
-    // Зміщення масиву так, щоб наступний день був на початку
     const nextDayIndex = sortedDates.findIndex((date) =>
       isSameDay(new Date(date), new Date(tomorrow))
     );
